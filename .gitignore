@@ -1,0 +1,41 @@
+# Environment
+.env
+
+# Data files (very large or unnecessary for code)
+Data/
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.parquet
+*.json
+*.xml
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd 
+
+
+# Jupyter notebooks (optional, if heavy or intermediate)
+*.ipynb
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# VS Code settings
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+
+medibot/Include/
+medibot/Lib/
+medibot/share/
+medibot/pyvenv.cfg
+
