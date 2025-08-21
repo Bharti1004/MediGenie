@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  padding: 30px;
+  gap: 20px;
+  background: radial-gradient(circle at top left, #dfefff, #f7f7fa);
+}
+
+.left-image {
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+
+.chat-container {
+  border-radius: 20px;
+  background: #ffffffbb;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chat-header {
+  height: 12%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(to right, #0a2a4a, #155799);
+  color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.chatbot-logo {
+  height: 95%;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+.chatbot-logo:hover {
+  transform: scale(1.05);
+}
+
+.chatbot-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.chat-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.chat-header p {
+  font-size: 13px;
+  color: #d9e7f1;
+}
+
+.actions button {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  margin-left: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s;
+}
+.actions button:hover {
+  transform: scale(1.2);
+}
+
+.chat-body {
+  height: 71%;
+  overflow-y: auto;
+  padding: 20px;
+  background: #f4f7fb;
+}
+
+.chat-footer {
+  height: 12%;
+  display: flex;
+  padding: 15px 20px;
+  background-color: #e5ebf5;
+}
+
+.chat-footer form {
+  display: flex;
+  width: 100%;
+}
+
+.chat-footer input {
+  flex: 1;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 10px 0 0 10px;
+  background-color: #f0f0f0;
+  font-size: 14px;
+}
+
+.chat-footer button {
+  background-color: #0a2a4a;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 0 10px 10px 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.footer-note {
+  height: 5%;
+  text-align: center;
+  font-size: 12px;
+  color: #5a5a5a;
+  padding: 4px 0;
+  margin: 0;
+}
+
+.message {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message.user {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.message.bot {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+/* Message bubble */
+.message .msg {
+  padding: 12px 18px;
+  border-radius: 20px;
+  word-wrap: break-word;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.message.user .msg {
+  background-color: #0a2a4a;
+  color: white;
+  border-radius: 20px 20px 0 20px;
+}
+
+.message.bot .msg {
+  background-color: #c3d6f2;
+  color: black;
+  border-radius: 20px 20px 20px 0;
+}
+
+.time {
+  font-size: 10px;
+  opacity: 0.6;
+  margin-top: 4px;
+  display: block;
+}
+
+body.dark-mode {
+  background-color: #0f1115;
+}
+
+body.dark-mode .main-container {
+  background: radial-gradient(circle at top left, #1c2230, #0f1115);
+}
+
+body.dark-mode .chat-container {
+  background: #1b1f2b;
+  color: #e3e3e3;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .chat-header {
+  background: linear-gradient(to right, #223045, #2a4c79);
+  color: #ffffff;
+}
+
+body.dark-mode .chatbot-header h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .chat-header p {
+  color: #aebedc;
+}
+
+body.dark-mode .chat-footer {
+  background-color: #1a1f2b;
+}
+
+body.dark-mode .chat-footer input {
+  background-color: #2a2f3f;
+  color: #ffffff;
+  border: 1px solid #3a3f50;
+}
+
+body.dark-mode .chat-footer button {
+  background-color: #2e4b74;
+  color: #ffffff;
+}
+
+body.dark-mode .chat-body {
+  background-color: #141820;
+}
+
+body.dark-mode .footer-note {
+  color: #888c99;
+}
+
+body.dark-mode .message.user .msg {
+  background-color: #2e4b74;
+  color: #ffffff;
+}
+
+body.dark-mode .message.bot .msg {
+  background-color: #3c4c61;
+  color: #ffffff;
+}
+
+body.dark-mode .time {
+  color: #b0b0b0;
+}

@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+# Virtual environment
+venv/
+.env
+
+# Database files
+*.db
+
+# Pickle & large data files
+*.pkl
+*.flag
+*.json
+*.log
+
+# VSCode settings
+.vscode/
+
+# Office docs (optional, keep only samples)
+*.docx

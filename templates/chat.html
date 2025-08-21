@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediGenie Smartbot</title>
+
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="static\style.css" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div>
+        <img src="static\chatbot.png" class="chatbot-logo" alt="Chatbot" />
+      </div>
+      <div class="chat-container">
+        <div class="chat-header">
+          <img src="static\chatbot2.png" class="chatbot-logo" alt="Chatbot" />
+          <div class="chatbot-header">
+            <h2>MediGenie Smartbot</h2>
+            <p>Your Intelligent AI-Powered Health Companion</p>
+          </div>
+          <div class="actions">
+            <button id="clearChat" title="Clear Chat">🗑️</button>
+            <button id="downloadChat" title="Download Chat">📥</button>
+            <button id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
+          </div>
+        </div>
+        <div class="chat-body" id="messageFormeight"></div>
+        <div class="chat-footer">
+          <form id="messageArea">
+            <input
+              type="text"
+              id="text"
+              name="msg"
+              placeholder="Type your message..."
+              autocomplete="off"
+              required
+            />
+            <button type="submit" id="send">➤</button>
+          </form>
+        </div>
+        <div class="footer-note">© 2025 MediGenie AI Assistant</div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#messageArea").on("submit", function (event) {
+          const time = new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+          const rawText = $("#text").val();
+          const userHtml = `
+          <div class="message user">
+            <div class="msg">${rawText}</div>
+            <span class="time">${time}</span>
+          </div>`;
+          $("#text").val("");
+          $("#messageFormeight").append(userHtml);
+
+          $.ajax({
+            data: { msg: rawText },
+            type: "POST",
+            url: "/get",
+          }).done(function (data) {
+            const botHtml = `
+            <div class="message bot">
+              <div class="msg">${data}</div>
+              <span class="time">${time}</span>
+            </div>`;
+            $("#messageFormeight").append($.parseHTML(botHtml));
+          });
+          event.preventDefault();
+        });
+
+        $("#clearChat").click(() => $("#messageFormeight").empty());
+
+        $("#downloadChat").click(() => {
+          const text = $("#messageFormeight").text();
+          const blob = new Blob([text], { type: "text/plain" });
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = "chat-history.txt";
+          link.click();
+        });
+
+        $("#darkModeToggle").click(() => {
+          $("body").toggleClass("dark-mode");
+        });
+      });
+    </script>
+  </body>
+</html>
