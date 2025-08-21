@@ -15,11 +15,7 @@ venv/
 # Pickle & large data files
 *.pkl
 *.flag
-*.json
 *.log
 
 # VSCode settings
 .vscode/
-
-# Office docs (optional, keep only samples)
-*.docx
